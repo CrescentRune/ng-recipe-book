@@ -16,8 +16,10 @@
 
         <div class="navbar-collapse" [class.collapse]="collapsed" (window:resize)="collapsed = true">
             <ul class="nav navbar-nav">
-                <li><a href="#" (click)="onSelectRecipes()">Recipes</a></li>
-                <li><a href="#" (click)="onSelectShopping()">Shopping</a></li>
+                <!-- <li><a href="#" (click)="onSelectRecipes()">Recipes</a></li> -->
+                <li><a routerLink="recipes">Recipes</a></li>
+                <!-- <li><a href="#" (click)="onSelectShopping()">Shopping</a></li> -->
+                <li><a routerLink="shopping-list">Shopping</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown" appDropdown>
