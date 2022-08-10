@@ -34,7 +34,7 @@ export class RecipesService {
     //     ];
 
     constructor(private shoppingListService: ShoppingListService) {
-
+        
     }
 
     addItemsToShoppingList(ingredients: Ingredient[]) {
@@ -43,6 +43,11 @@ export class RecipesService {
 
     getRecipes() {
         return this.recipes.slice();
+    }
+
+    setRecipes(recipes: Recipe[]) {
+        this.recipes = recipes;
+        this.recipesUpdate.next(this.recipes.slice());
     }
 
     getRecipe(id: number): Recipe {
