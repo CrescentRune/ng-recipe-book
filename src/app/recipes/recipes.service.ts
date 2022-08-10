@@ -55,11 +55,6 @@ export class RecipesService {
         return { ...this.recipes[id] };
     }
 
-    setRecipes(recipes: Recipe[]): void {
-        this.recipes = recipes;
-        this.recipesUpdate.next(this.recipes.slice());
-    }
-
     deleteRecipe(id: number): void{
         this.recipes.splice(id, 1);
         this.recipesUpdate.next(this.recipes.slice());
