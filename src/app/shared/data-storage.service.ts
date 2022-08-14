@@ -12,7 +12,7 @@ import { Recipe } from "../recipes/recipes.model";
 export class DataStorageService {
     constructor(
         private http: HttpClient,
-        private recipesService: RecipesService    
+        private recipesService: RecipesService
     ) {}
     
     storeRecipes() {
