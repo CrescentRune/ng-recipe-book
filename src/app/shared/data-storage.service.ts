@@ -4,6 +4,7 @@ import { map, tap } from "rxjs/operators";
 
 import { RecipesService } from "../recipes/recipes.service";
 import { Recipe } from "../recipes/recipes.model";
+import { environment } from "src/environments/environment";
 
 
 @Injectable({
@@ -18,14 +19,14 @@ export class DataStorageService {
     storeRecipes() {
         const recipes = this.recipesService.getRecipes();
         this.http.put(
-            'https://ng-complete-guide-cf9d1-default-rtdb.firebaseio.com/recipes.json',
+            `${environment.GOOGLE_API_URL}/recipes.json`,
             recipes
         ).subscribe();
     }
 
     fetchRecipes() {
         return this.http
-            .get<Recipe[]>('https://ng-complete-guide-cf9d1-default-rtdb.firebaseio.com/recipes.json')
+            .get<Recipe[]>(`${environment.GOOGLE_API_URL}/recipes.json`)
             .pipe(
                 map(recipes => {
                     return recipes.map(recipe => {
